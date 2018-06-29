@@ -1,0 +1,23 @@
+---
+title: "Plotly Assignment"
+author: "Rafael Lavagna"
+date: "29 de junio de 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 29/6/2018 - New York Air Quality
+
+```{r, eval = TRUE, echo= FALSE, warning=FALSE, message=FALSE}
+data("airquality")
+library(plotly)
+airquality <- airquality[!is.na(airquality$Ozone),]
+airquality <- airquality[!is.na(airquality$Solar.R),]
+
+plot_ly(x = ~airquality$Temp, y = ~airquality$Solar.R, z =~airquality$Ozone, type ="scatter3d", color = ~airquality$Month)
+
+```
+
